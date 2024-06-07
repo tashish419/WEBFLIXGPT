@@ -1,6 +1,14 @@
 # WEBFLIXGPT
  - create react app
  - config tailwind
+ - Header
+ - Routing
+ - Login/SignUp form
+ - Toggle
+ - Form validations
+ - useRef() Hook
+ - firebase setup
+ - Deploying app to production
 
  # features
  - Login/Sign up
@@ -17,3 +25,6 @@
  - WebflixGPt
    - search bar
    - movie suggestions
+
+ # Codingfeatures
+  - Toggle : signIn/signUp

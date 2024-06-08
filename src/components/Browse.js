@@ -2,7 +2,7 @@
 
 const Browse = () => {
   return (
-    <div>
+    <div className=" font-bold text-3xl text-center">
       Browse
     </div>
   );

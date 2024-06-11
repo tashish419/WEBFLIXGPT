@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 
-
 const Body = () => {
   const dispatch = useDispatch();
 
@@ -17,9 +16,16 @@ const Body = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // object destructring from user object
-        const { uid, email, displayName } = user;
+        const { uid, email, displayName, photoURL } = user;
         //when user sign in  & sign up it will disptach an action , addUser reducer function will be called and it will mutate the state in userSlice
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
       } else {
         // User is signed out
         dispatch(removeUser());

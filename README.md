@@ -13,6 +13,8 @@
  - implement sign in user API from firebase(manage user)
  - created redux store with userSlice
  - navigate to browse page after sign in 
+ - implemented sign out by calling signOut API in header component
+ - called updateProfile() API in login component from firebase to update user with name and photo
 
  # features
  - Login/Sign up

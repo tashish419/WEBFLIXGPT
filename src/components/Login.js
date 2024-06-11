@@ -4,16 +4,21 @@ import { checkValidateData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [IsSignedIn, setIsSignedIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -34,6 +39,29 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL:
+              "https://occ-0-3752-3646.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABW9nD5GQdWAOuAZ_AbmAJbKmHUFfg3TsGwYAX-CEBI4C6cEQj7OKIe8o5GFvSethruPuZ0Y-4kMuC7Q8fbu4p5XlaztFdPyva1bT.png?r=5f6",
+          })
+            .then(() => {
+              // after updating the user we will extract data from auth.currentUser,because the above "user" is not updated one
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              //once the user is updated in firebase and the promise return is successful then addUser() action will be disptached and our redux store will be updated
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(errorMessage);
+            });
+
           console.log(user);
           navigate("/browse");
         })
@@ -57,7 +85,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode+" "+errorMessage);
+          setErrorMessage(errorCode + " " + errorMessage);
         });
     }
   };
@@ -82,6 +110,7 @@ const Login = () => {
         </h1>
         {!IsSignedIn && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-2 my-4 w-full bg-gray-700 rounded-md"

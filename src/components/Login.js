@@ -7,16 +7,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [IsSignedIn, setIsSignedIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-
-
 
   const name = useRef(null);
   const email = useRef(null);
@@ -41,8 +39,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://occ-0-3752-3646.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABW9nD5GQdWAOuAZ_AbmAJbKmHUFfg3TsGwYAX-CEBI4C6cEQj7OKIe8o5GFvSethruPuZ0Y-4kMuC7Q8fbu4p5XlaztFdPyva1bT.png?r=5f6",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // after updating the user we will extract data from auth.currentUser,because the above "user" is not updated one
@@ -56,14 +53,12 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-          
             })
             .catch((error) => {
               setErrorMessage(errorMessage);
             });
 
           console.log(user);
-         
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -80,7 +75,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-         
         })
         .catch((error) => {
           const errorCode = error.code;

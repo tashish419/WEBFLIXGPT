@@ -15,6 +15,12 @@
  - navigate to browse page after sign in 
  - implemented sign out by calling signOut API in header component
  - called updateProfile() API in login component from firebase to update user with name and photo
+ - Bugfix: signUp user with displayName and photoURL
+ - Bugfix: if user is not signed in redirect to /browse to login page and if user is signed in redirect to "/" to browse page.
+ - unsubscribed to the onAuthStateChanged callback when Header component unmounts
+ - Add hard coded values to the constants file
+ - registered tmdb API and created an app over there and get "access token"
+ - Got data from TMDB Now Playing Movies list API
 
  # features
  - Login/Sign up

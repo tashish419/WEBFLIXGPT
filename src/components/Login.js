@@ -87,6 +87,7 @@ const Login = () => {
   const signUpToggle = () => {
     setIsSignedIn(!IsSignedIn);
   };
+  
   return (
     <div className="relative">
       <Header />

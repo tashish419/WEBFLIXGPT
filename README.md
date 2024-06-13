@@ -21,6 +21,15 @@
  - Add hard coded values to the constants file
  - registered tmdb API and created an app over there and get "access token"
  - Got data from TMDB Now Playing Movies list API
+ - created MovieSlice and updated the store with movies data
+ - created main Container which conatins videoBackground and VideoTitle
+ - Subscribed to the store to extract movie data to pass that data as props to videoTitle
+ - added classes to Main container and its children component
+ - fetched movie videos by calling videos API
+ - filtered the video data and got trailer video 
+ - Added addmovieTrailer action in movieSlice.reducer and updated the store with trailer data 
+ - subscribed to the store.movie.movietrailer to extract data from the store
+ - created custom Hook movieTrailerVideo for API call and logic
 
  # features
  - Login/Sign up
@@ -28,10 +37,10 @@
    - redirect to browse page
  - Browse(after login)
    - Header
-   - Main Movie
-     - title 
-     - description
-   - Movies Suggestions
+   - Main Movie container
+     - videoTitle 
+     - videoDiscription
+   - Movies Suggestions container
     - Movieslist * N(Horizontal scrolloing)
 
  - WebflixGPt

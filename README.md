@@ -30,6 +30,8 @@
  - Added addmovieTrailer action in movieSlice.reducer and updated the store with trailer data 
  - subscribed to the store.movie.movietrailer to extract data from the store
  - created custom Hook movieTrailerVideo for API call and logic
+ - debug movieid = undefined 
+ - addes css to video background
 
  # features
  - Login/Sign up

@@ -15,7 +15,6 @@ const Login = () => {
   const [IsSignedIn, setIsSignedIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -84,15 +83,17 @@ const Login = () => {
   const signUpToggle = () => {
     setIsSignedIn(!IsSignedIn);
   };
-  
+
   return (
-    <div className="relative">
+    <div>
       <Header />
-      <img
-        className="absolute top-0 -z-10"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/dd4dfce3-1a39-4b1a-8e19-b7242da17e68/86742114-c001-4800-a127-c9c89ca7bbe4/IN-en-20240527-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt="banner"
-      />
+      <div className="absolute">
+        <img
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/dd4dfce3-1a39-4b1a-8e19-b7242da17e68/86742114-c001-4800-a127-c9c89ca7bbe4/IN-en-20240527-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+          alt="banner"
+        />
+      </div>
+
       <form
         onSubmit={(e) => e.preventDefault()}
         className="absolute w-3/12 p-12 mx-auto my-40 right-0 left-0 bg-black text-white rounded-lg bg-opacity-80"

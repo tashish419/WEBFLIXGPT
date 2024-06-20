@@ -8,7 +8,7 @@ const VideoBackground = ({movieId}) => {
   // console.log(movieId);
 
   return (
-    <div className="w-screen absolute top-0 -z-10">
+    <div className="w-screen">
       <iframe
         className="w-screen aspect-video"
         src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?&autoplay=1&mute=1&rel=0&controls=0&loop=1&modestbranding=1"}

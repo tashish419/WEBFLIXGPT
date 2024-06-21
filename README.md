@@ -35,6 +35,11 @@
  - brought secondary container just below main container 
  - added css to secondary container 
  - called TopRateMovies API , UpcomingMovies API, PopularMovies APIs inside custom hooks 
+ - created GPT search page with gptsearch button inside header
+ - using redux store build toggle functionality for GPTSearchPage - if showGPtSearch is true, only then load GPTSearchPage otherwise load MainContainer and Secondary container.
+ - created GPTSearchBar with Form having input and a search button.
+ - added css to GPTSearchBar and placed Background Image behind Search Bar
+ 
 
  # features
  - Login/Sign up

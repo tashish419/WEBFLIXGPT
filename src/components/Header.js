@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO_URL } from "../utils/constants";
+import { toggleGPTSearchView } from "../utils/GPTSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -46,22 +47,32 @@ const Header = () => {
         navigate("/");
       }
     });
-    
+
     //unsubscribe when component unmounts
-    return () => unsubscribe(); 
+    return () => unsubscribe();
   }, []);
+
+  const handleGPTSearchPage = () => {
+    // Toggle GPT Search Functionality
+    dispatch(toggleGPTSearchView())
+  };
 
   return (
     <div className="px-8 pt-2 w-screen bg-gradient-to-b from-black flex justify-between absolute z-10">
-      <img
-        className="w-32"
-        src= {LOGO_URL}
-        alt="logo"
-      />
+      <img className="w-32" src={LOGO_URL} alt="logo" />
       {user && (
-        <div className="flex pt-2">
-          <img className="w-8 h-8" src={user?.photoURL} alt="userIcon" />
-          <button className="px-1 pb-2 text-sm text-white" onClick={handleSignOut}>
+        <div className="flex p-2">
+          <button
+            className="px-4 py-2 bg-purple-700 mx-4 rounded-lg text-white hover:bg-opacity-70"
+            onClick={handleGPTSearchPage}
+          >
+            GPT Search
+          </button>
+          <img className="w-10 h-10" src={user?.photoURL} alt="userIcon" />
+          <button
+            className="px-1 pb-2 text-sm text-white"
+            onClick={handleSignOut}
+          >
             (Sign Out)
           </button>
         </div>

@@ -31,7 +31,10 @@
  - subscribed to the store.movie.movietrailer to extract data from the store
  - created custom Hook movieTrailerVideo for API call and logic
  - debug movieid = undefined 
- - addes css to video background
+ - added css to video background
+ - brought secondary container just below main container 
+ - added css to secondary container 
+ - called TopRateMovies API , UpcomingMovies API, PopularMovies APIs inside custom hooks 
 
  # features
  - Login/Sign up

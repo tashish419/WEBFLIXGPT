@@ -39,6 +39,9 @@
  - using redux store build toggle functionality for GPTSearchPage - if showGPtSearch is true, only then load GPTSearchPage otherwise load MainContainer and Secondary container.
  - created GPTSearchBar with Form having input and a search button.
  - added css to GPTSearchBar and placed Background Image behind Search Bar
+ - replaced hard code  BG_URL with a varible declared inside constants
+ - made the GPTSearchPage multilingual - and for that i created Supported_lang object in my constants and a separate languageConstants inside my utils .
+ - created a dropdown options inside header and onChanging the options , action will be dispatched with a value bound to it , it will change the language state and by using useSelector Hook ,will read the state and  according to that GPTSearch Bar component will be rerendered.   
  
 
  # features

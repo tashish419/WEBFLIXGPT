@@ -93,7 +93,6 @@ const Login = () => {
           alt="banner"
         />
       </div>
-
       <form
         onSubmit={(e) => e.preventDefault()}
         className="absolute w-3/12 p-12 mx-auto my-40 right-0 left-0 bg-black text-white rounded-lg bg-opacity-80"

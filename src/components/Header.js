@@ -84,7 +84,7 @@ const Header = () => {
             className="px-4 py-2 bg-purple-700 mx-4 rounded-lg text-white hover:bg-opacity-70"
             onClick={handleGPTSearchPage}
           >
-            GPT Search
+           {showGPTSearch ? "Home Page" : "GPT Search"} 
           </button>
           <img className="w-10 h-10" src={user?.photoURL} alt="userIcon" />
           <button

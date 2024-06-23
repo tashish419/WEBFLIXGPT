@@ -1,10 +1,14 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addMovieTrailer } from "../utils/movieSlice";
 import { useEffect } from "react";
 
 const useMovieTrailerVideo = (movieId) => {
   const dispatch = useDispatch();
+
+  //memoization- if my store already has data then do not need to make api call again n again and this is how we can do it:
+  const trailerVideo = useSelector((store) => store.movie?.trailerVideo);
+
   //fetch trailer video
   const getMovieTrailer = async () => {
     const data = await fetch(
@@ -24,7 +28,7 @@ const useMovieTrailerVideo = (movieId) => {
   };
 
   useEffect(() => {
-    getMovieTrailer();
+    !trailerVideo && getMovieTrailer(); //now getMovieTrailer will be called when trailerVideo is not there in store
   }, []);
 };
 

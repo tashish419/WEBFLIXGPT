@@ -42,10 +42,19 @@
  - replaced hard code  BG_URL with a varible declared inside constants
  - made the GPTSearchPage multilingual - and for that i created Supported_lang object in my constants and a separate languageConstants inside my utils .
  - created a dropdown options inside header and onChanging the options , action will be dispatched with a value bound to it , it will change the language state and by using useSelector Hook ,will read the state and  according to that GPTSearch Bar component will be rerendered.   
+ - install openai from npm and added openAI configuration inside utils.
+ - made an API call to openAI and get Movies Suggestions
+ - made an API call to tmdb search->movie
+ - using split method , converted string of movie names into array and mapped over that array and for each movie inside that array called the searchtmdbMovies() which will return 5 promise for 5 movies.
+ - after resolving promise, dispatched the movie data and movie names inside newlycreated action inside GPTSlice.
+ - used memoization technique to stop make api calls again n again  even if data is already in the store 
+
+
  
 
  # features
  - Login/Sign up
+   - Header
    - sign in/ sign up form
    - redirect to browse page
  - Browse(after login)
@@ -57,8 +66,10 @@
     - Movieslist * N(Horizontal scrolloing)
 
  - WebflixGPt
-   - search bar
-   - movie suggestions
+   - gptSearch Page
+     - multilingual page
+     - search bar
+     - movie suggestions
 
  # Codingfeatures
   - Toggle : signIn/signUp

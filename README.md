@@ -47,7 +47,8 @@
  - made an API call to tmdb search->movie
  - using split method , converted string of movie names into array and mapped over that array and for each movie inside that array called the searchtmdbMovies() which will return 5 promise for 5 movies.
  - after resolving promise, dispatched the movie data and movie names inside newlycreated action inside GPTSlice.
- - used memoization technique to stop make api calls again n again  even if data is already in the store 
+ - used memoization technique to stop make api calls again n again if data is already in the store 
+ - made the website mobile responsive
 
 
  

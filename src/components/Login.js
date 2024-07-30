@@ -88,14 +88,15 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
+        <img 
+          className="h-screen object-cover md:h-auto"
           src={BG_URL}
           alt="banner"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-3/12 p-12 mx-auto my-40 right-0 left-0 bg-black text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold py-4 text-3xl">
           {IsSignedIn ? "Sign In" : "Sign Up"}
@@ -105,29 +106,29 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-2 my-4 w-full bg-gray-700 rounded-md"
+            className="p-4 my-4 w-full bg-gray-700"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-2 my-4 w-full bg-gray-700 rounded-md"
+          className="p-4 my-4 w-full bg-gray-700"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 my-4 w-full bg-gray-700 rounded-md"
+          className="p-4 my-4 w-full bg-gray-700"
         />
-        <p className="font-bold text-white text-md">{errorMessage}</p>
+        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
         <button
-          className="w-full bg-red-800 p-2 my-6 rounded-lg"
+          className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleClickButton}
         >
           {IsSignedIn ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-2 cursor-pointer" onClick={signUpToggle}>
+        <p className="py-4 cursor-pointer" onClick={signUpToggle}>
           {IsSignedIn
             ? "New to Webflix? Sign up now."
             : "Already registered?Sign in now."}

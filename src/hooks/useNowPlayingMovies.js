@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
 
-  //memoization
+  //memoization - make nowPlayingMovies API call only when data is not there inside the store that is when nowPlayingMovies state is null
   const nowPlayingMovies = useSelector(
     (store) => store.movie?.nowPLayingMovies
   );
@@ -23,6 +23,7 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
+    //memoization- preventing unnecessary API calls
     !nowPlayingMovies && getNowPlayingMovie();
   }, []);
 };

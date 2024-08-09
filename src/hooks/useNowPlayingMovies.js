@@ -8,7 +8,7 @@ const useNowPlayingMovies = () => {
 
   //memoization - make nowPlayingMovies API call only when data is not there inside the store that is when nowPlayingMovies state is null
   const nowPlayingMovies = useSelector(
-    (store) => store.movie?.nowPLayingMovies
+    (store) => store.movie?.nowPlayingMovies
   );
 
   // fetch data from TMDB API and update the store
@@ -25,7 +25,7 @@ const useNowPlayingMovies = () => {
   useEffect(() => {
     //memoization- preventing unnecessary API calls
     !nowPlayingMovies && getNowPlayingMovie();
-  }, []);
+  }, [dispatch, nowPlayingMovies]);
 };
 
 export default useNowPlayingMovies;

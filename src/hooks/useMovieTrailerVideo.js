@@ -29,7 +29,7 @@ const useMovieTrailerVideo = (movieId) => {
 
   useEffect(() => {
     !trailerVideo && getMovieTrailer(); //now getMovieTrailer will be called when trailerVideo is not there in store
-  }, []);
+  }, [trailerVideo, dispatch, movieId]);
 };
 
 export default useMovieTrailerVideo;

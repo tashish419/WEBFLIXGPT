@@ -52,7 +52,7 @@ const Header = () => {
 
     //unsubscribe when component unmounts
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleGPTSearchPage = () => {
     // Toggle GPT Search Functionality
